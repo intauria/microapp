@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "microapp-platform": "libs/microapp-platform",
     "shell": "apps/shell",
     "shell-e2e": "apps/shell-e2e"
   }
