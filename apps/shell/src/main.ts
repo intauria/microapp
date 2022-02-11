@@ -1,13 +1,18 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { FirstAppModule } from './first-app/app.module';
+import { SecondAppModule } from './second-app/app.module';
+
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
+const plattform = platformBrowserDynamic();
+
+plattform.bootstrapModule(FirstAppModule)
+  .catch((err) => console.error(err));
+
+plattform.bootstrapModule(SecondAppModule)
   .catch((err) => console.error(err));

@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/shell",
   "sourceRoot": "apps/shell/src",
-  "prefix": "microapp-platform",
+  "prefix": "microapp",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

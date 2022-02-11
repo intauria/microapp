@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: green;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.twitter-logo {
+  width: 25px;
+  height: 25px;
+}
