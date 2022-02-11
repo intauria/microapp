@@ -3,7 +3,7 @@
 This library support Micro App frontend development.
 
 - [@angular-architects/microapp](#angular-architectsmicroapp)
-  - [Features](#features)
+  - [Supported features](#supported-features)
   - [Roadmap](#roadmap)
   - [Setup](#setup)
     - [Install `node_module`](#install-node_module)
@@ -12,7 +12,7 @@ This library support Micro App frontend development.
     - [Routing](#routing)
       - [Deeplinking from Shell to Micro App](#deeplinking-from-shell-to-micro-app)
 
-## Features
+## Supported features
 
 - Multi Router support in the same window object
 - Support for Angular 13+
@@ -22,19 +22,22 @@ This library support Micro App frontend development.
 
 ## Roadmap
 
+- Named router outlets w/i an Angular app
+- Support for different versions and environment configs
+- Headless shell infrastructure
 - Cross tech support
   - React, Vue, AngularJS
 - Distributed State Management
-- Headless shell infrastructure
-- Support for different version and environment configs
 
 ## Setup
 
 ### Install `node_module`
+
+**Will be published soon. Not yet available on npm.**
+
 ```
 npm install @angular-architects/microapp 
 ```
-
 
 ### Shell
 ```typescript
