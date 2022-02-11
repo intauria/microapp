@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'microapp-platform',
+  displayName: 'microapp',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/microapp-platform',
+  coverageDirectory: '../../coverage/libs/microapp',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

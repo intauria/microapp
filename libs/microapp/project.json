@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/microapp",
+  "sourceRoot": "libs/microapp/src",
+  "prefix": "microapp",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/microapp"],
+      "options": {
+        "project": "libs/microapp/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/microapp/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/microapp/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/microapp"],
+      "options": {
+        "jestConfig": "libs/microapp/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/microapp/src/**/*.ts",
+          "libs/microapp/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

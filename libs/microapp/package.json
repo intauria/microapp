@@ -1,6 +1,6 @@
 {
-  "name": "@intauria/microapp-platform",
-  "version": "1.0.0-beta.0",
+  "name": "@angular-architects/microapp",
+  "version": "1.0.0-beta.1",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0"

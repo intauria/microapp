@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "microapp-platform",
+            "prefix": "microapp",
             "style": "kebab-case"
           }
         ]

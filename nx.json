@@ -1,5 +1,5 @@
 {
-  "npmScope": "microapp-platform",
+  "npmScope": "microapp",
   "affected": {
     "defaultBase": "main"
   },

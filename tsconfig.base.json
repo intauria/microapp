@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@intauria/microapp-platform": ["libs/microapp-platform/src/index.ts"]
+      "@angular-architects/microapp/messaging": ["libs/microapp/src/lib/messaging/index.ts"],
+      "@angular-architects/microapp/routing": ["libs/microapp/src/lib/routing/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
