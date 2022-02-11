@@ -1,4 +1,6 @@
+
 export type MessageFn<T> = (payload?: T, config?: { app?: string, type?: string }) => boolean;
+export type ObserverFn<T> = (payload: T, app?: string, ev?: CustomEvent) => void;
 
 export function payload<T>() {
   return {} as T;
@@ -20,8 +22,6 @@ export function createMessage<T>(type: string, app?: string, payload?: T): Messa
     }}
   ));
 }
-
-export type ObserverFn<T> = (payload: T, app?: string, ev?: CustomEvent) => void;
 
 export interface MessageListener<T> {
   subscribe: (callback: ObserverFn<T>) => void;

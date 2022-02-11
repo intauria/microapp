@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'use-case',
+    path: 'use-case-1',
     component: UseCaseComponent
   }
 ];

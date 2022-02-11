@@ -16,6 +16,6 @@ export class MicroAppLocationStrategy extends PathLocationStrategy implements Lo
   }
 
   override replaceState(state: any, title: string, url: string, queryParams: string): void {
-    super.pushState({ ...state, microApp: this.microAppName }, title, url, queryParams);
+    super.replaceState({ ...state, microApp: this.microAppName }, title, url, queryParams);
   }
 }

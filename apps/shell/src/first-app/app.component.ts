@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'microapp-root-1',
@@ -8,8 +7,4 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'shell';
-
-  constructor(private router: Router) {
-    this.router.initialNavigation();
-  }
 }

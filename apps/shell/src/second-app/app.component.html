@@ -8,6 +8,12 @@
   <li>
     <a routerLink="/use-case-2">Use Case</a>
   </li>
+  <li>
+    <a [routerLink]="[{ outlets: { 'app-1': '' }}]">Deeplink: App 1, Home</a>
+  </li>
+  <li>
+    <a [routerLink]="[{ outlets: { 'app-1': 'use-case-1' }}]">Deeplink: App 1, Use Case 1</a>
+  </li>
 </ul>
 
 <router-outlet></router-outlet>
