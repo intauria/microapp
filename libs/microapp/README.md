@@ -8,10 +8,10 @@ This library support Micro App frontend development.
 - Support for Angular 13+
 - Messaging API based on CustomEvents
   - influenced by RxJS and NgRx Action Creators
+- Deep Linking across different Micro Apps
 
 ## Roadmap
 
-- Deep Linking across different Micro Apps
 - Cross tech support
   - React, Vue, AngularJS
 - Distributed State Management
