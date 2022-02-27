@@ -1,6 +1,14 @@
 {
   "name": "@angular-architects/microapp",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
+  "license": "MIT",
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/intauria/microapp"
+  },
+  "author": {
+    "name": "Michael Egger-Zikes"
+  },
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0"
