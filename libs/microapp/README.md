@@ -11,6 +11,7 @@ This library support Micro App frontend development.
     - [Micro App](#micro-app)
     - [Routing](#routing)
       - [Deeplinking from Shell to Micro App](#deeplinking-from-shell-to-micro-app)
+      - [Experimental string-based Deeplinking from Shell to Micro App](#experimental-string-based-deeplinking-from-shell-to-micro-app)
 
 ## Supported features
 
@@ -74,4 +75,9 @@ Use normal Angular `route` definitions and the `routerLink` Directive.
 #### Deeplinking from Shell to Micro App
 ```html
 <a [routerLink]="[{ outlets: { 'microapp': 'mypath' }}]">Deeplink from Shell to Micro App -> mypath</a>
+```
+
+#### Experimental string-based Deeplinking from Shell to Micro App
+```html
+<a routerLink="(microapp:mypath)">Deeplink string from Shell to Micro App -> mypath</a>
 ```
