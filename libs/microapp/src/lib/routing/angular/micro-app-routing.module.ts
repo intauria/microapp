@@ -1,7 +1,6 @@
 import { LocationStrategy } from "@angular/common";
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { UrlHandlingStrategy } from "@angular/router";
-import { patchPushState, pushEventPushStateFn, patchReplaceState, replaceEventReplaceStateFn } from "../javascript";
 import { MicroAppLocationStrategy } from "./micro-app-location-strategy";
 import { MICRO_APP_NAME, MICRO_APP_SHELL } from "./micro-app-name.token";
 import { MicroAppRoutingState } from "./micro-app-routing-state";
@@ -19,8 +18,7 @@ export class MicroAppRoutingModule {
     return {
       ngModule: MicroAppRoutingModule,
       providers: [
-        MicroAppRoutingModule.getDefaultProviders(config),
-        { provide: MICRO_APP_SHELL, useValue: true },
+        MicroAppRoutingModule.getDefaultProviders(config, true)
       ]
     };
   }
@@ -34,11 +32,12 @@ export class MicroAppRoutingModule {
     };
   }
 
-  private static getDefaultProviders(config: MicroAppRoutingConfig) {
+  private static getDefaultProviders(config: MicroAppRoutingConfig, isShell: boolean = false) {
     return [
       { provide: MICRO_APP_NAME, useValue: config.name },
       { provide: UrlHandlingStrategy, useClass: MicroAppUrlHandlingStrategy },
       { provide: LocationStrategy, useClass: MicroAppLocationStrategy },
+      { provide: MICRO_APP_SHELL, useValue: isShell },
       MicroAppRoutingState
     ];
   }

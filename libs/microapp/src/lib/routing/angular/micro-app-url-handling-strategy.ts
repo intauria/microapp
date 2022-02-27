@@ -5,50 +5,72 @@ import { MICRO_APP_NAME } from './micro-app-name.token';
 
 @Injectable()
 export class MicroAppUrlHandlingStrategy implements UrlHandlingStrategy {
+  shouldNavigate = true;
+
   constructor(
     private serializer: UrlSerializer,
-    @Inject(MICRO_APP_NAME) private microAppName: string
-  ) {}
+    @Inject(MICRO_APP_NAME) private microAppName: string) {}
 
   extract(tree: UrlTree): UrlTree {
-    this.sendDeeplinkEvent(tree);
-    return this.processInternalRoutes(tree);
+    // console.log('extract 1', this.microAppName);
+    const strPath = tree?.root?.children?.['primary']?.segments?.[0]?.path;
+    const strTree = strPath && strPath.startsWith('(') && strPath.endsWith(')') &&
+      this.serializer.parse(strPath);
+
+    // console.log('extract 2', strPath, strTree, this.microAppName);
+    if (strTree) {
+      this.sendDeeplinkEvent(strTree);
+      this.shouldNavigate = false;
+      return tree;
+    } else {
+      this.sendDeeplinkEvent(tree);
+      this.shouldNavigate = true;
+      return this.processInternalRoutes(tree);
+    }
   }
 
-  shouldProcessUrl(tree: UrlTree): boolean {
-    // console.log('should', !!tree?.root);
-    return !!tree?.root
+  shouldProcessUrl(): boolean {
+    // console.log('should navigate', this.shouldNavigate);
+    return this.shouldNavigate;
   }
 
   merge(newUrlPart: UrlTree): UrlTree {
     return newUrlPart;
   }
 
-  private getNewTree(tree: UrlTree): UrlTree {
+  private getFlatTreeClone(tree: UrlTree): UrlTree {
     return Object.assign(new UrlTree, tree);
   }
 
   private processInternalRoutes(tree: UrlTree): UrlTree {
-    // console.log('extract 1', tree);
-    const appUrlTree = tree.root.children['primary'] || tree.root.children[this.microAppName];
-    const newTree = this.getNewTree(tree);
+    // console.log('process internal routes 1', this.microAppName);
+    const appUrlTree = tree?.root?.children?.['primary'] || tree?.root?.children?.[this.microAppName];
+    const newTree = this.getFlatTreeClone(tree);
+
     if (appUrlTree) {
       newTree.root = appUrlTree;
     }
-    // const url = this.serializer.serialize(newTree);
-    // console.log('extract 2', url, appUrlTree, tree, newTree);
+
+    /* console.log(
+      'process internal routes 2',
+      this.serializer.serialize(tree),
+      appUrlTree,
+      this.serializer.serialize(newTree),
+      newTree,
+      this.microAppName
+    ); */
+
     return newTree;
   }
 
   private sendDeeplinkEvent(tree: UrlTree): void {
     Object.keys(tree.root.children)
-    .filter(key => !(key === 'primary' || key === this.microAppName))
-    .forEach(key => {
-      const myTree = this.getNewTree(tree);
-      myTree.root = tree.root.children[key];
-      const url = this.serializer.serialize(myTree).slice(1);
-      // console.log(key, url);
-      deeplinkEvent(key, url);
-    });
+      .filter(key => !(key === 'primary' || key === this.microAppName))
+      .forEach(key => {
+        const newTree = this.getFlatTreeClone(tree);
+        newTree.root = tree.root.children[key];
+        const url = this.serializer.serialize(newTree).slice(1);
+        deeplinkEvent(key, url);
+      });
   }
 }
