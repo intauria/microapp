@@ -16,7 +16,7 @@
     "prerelease": "cd libs/microapp && npm version prerelease --preid beta",
     "release": "npm run microapp:build:production",
     "release:npm": "npm run release",
-    "postrelease:npm": "npm publish --access public --tag latest"
+    "postrelease:npm": "cd dist/libs/microapp && npm publish --access public --tag latest"
   },
   "private": true,
   "dependencies": {
