@@ -7,7 +7,7 @@
     "url": "https://github.com/intauria/microapp"
   },
   "author": {
-    "name": "Michael Egger-Zikes"
+    "name": "Michael Egger-Zikes | intauria.com"
   },
   "peerDependencies": {
     "@angular/common": "^13.2.0",

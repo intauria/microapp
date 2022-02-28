@@ -7,7 +7,13 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "microapp:build:production": "nx run microapp:build:production --skip-nx-cache",
+    "postmicroapp:build:production": "cpr README.md dist/libs/microapp/README.md",
+    "prerelease": "cd libs/microapp && npm version prerelease",
+    "release": "npm run microapp:build:production",
+    "release:npm": "npm run release",
+    "postrelease:npm": "npm publish --access public --tag latest"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +49,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.10.0",
     "@typescript-eslint/parser": "~5.10.0",
+    "cpr": "^3.0.1",
     "cypress": "^9.1.0",
     "eslint": "~8.7.0",
     "eslint-config-prettier": "8.1.0",
