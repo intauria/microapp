@@ -34,8 +34,6 @@ This library support Micro App frontend development.
 
 ### Install `node_module`
 
-**Will be published soon. Not yet available on npm.**
-
 ```
 npm install @angular-architects/microapp 
 ```
