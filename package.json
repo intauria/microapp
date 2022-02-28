@@ -10,7 +10,7 @@
     "test": "nx test",
     "microapp:build:production": "nx run microapp:build:production --skip-nx-cache",
     "postmicroapp:build:production": "cpr README.md dist/libs/microapp/README.md && cpr LICENSE dist/libs/microapp/LICENSE",
-    "prerelease": "cd libs/microapp && npm version prerelease",
+    "prerelease": "cd libs/microapp && npm version prerelease --preid beta",
     "release": "npm run microapp:build:production",
     "release:npm": "npm run release",
     "postrelease:npm": "npm publish --access public --tag latest"
