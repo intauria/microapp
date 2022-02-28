@@ -9,7 +9,7 @@
     "build": "nx build",
     "test": "nx test",
     "microapp:build:production": "nx run microapp:build:production --skip-nx-cache",
-    "postmicroapp:build:production": "cpr README.md dist/libs/microapp/README.md",
+    "postmicroapp:build:production": "cpr README.md dist/libs/microapp/README.md && cpr LICENSE dist/libs/microapp/LICENSE",
     "prerelease": "cd libs/microapp && npm version prerelease",
     "release": "npm run microapp:build:production",
     "release:npm": "npm run release",
