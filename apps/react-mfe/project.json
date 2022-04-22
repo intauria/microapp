@@ -1,0 +1,84 @@
+{
+  "root": "apps/react-mfe",
+  "sourceRoot": "apps/react-mfe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/react-mfe",
+        "index": "apps/react-mfe/src/index.html",
+        "baseHref": "/",
+        "main": "apps/react-mfe/src/main.tsx",
+        "polyfills": "apps/react-mfe/src/polyfills.ts",
+        "tsConfig": "apps/react-mfe/tsconfig.app.json",
+        "assets": [
+          "apps/react-mfe/src/favicon.ico",
+          "apps/react-mfe/src/assets"
+        ],
+        "styles": ["apps/react-mfe/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/react-mfe/src/environments/environment.ts",
+              "with": "apps/react-mfe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-mfe:build",
+        "hmr": true,
+        "port": 4000
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-mfe:build:development"
+        },
+        "production": {
+          "buildTarget": "react-mfe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-mfe/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/react-mfe"],
+      "options": {
+        "jestConfig": "apps/react-mfe/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

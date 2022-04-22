@@ -1,0 +1,28 @@
+{
+  "root": "apps/react-mfe-e2e",
+  "sourceRoot": "apps/react-mfe-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/react-mfe-e2e/cypress.json",
+        "devServerTarget": "react-mfe:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "react-mfe:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-mfe-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["react-mfe"]
+}

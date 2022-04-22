@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "microapp": "libs/microapp",
+    "react-mfe": "apps/react-mfe",
+    "react-mfe-e2e": "apps/react-mfe-e2e",
     "shell": "apps/shell",
     "shell-e2e": "apps/shell-e2e"
   }
