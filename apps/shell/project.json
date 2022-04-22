@@ -58,7 +58,8 @@
           "browserTarget": "shell:build:production"
         },
         "development": {
-          "browserTarget": "shell:build:development"
+          "browserTarget": "shell:build:development",
+          "port": 5000
         }
       },
       "defaultConfiguration": "development"
