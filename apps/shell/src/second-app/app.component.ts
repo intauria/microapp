@@ -1,4 +1,12 @@
+import { createMessage } from '@angular-architects/microapp/messaging';
 import { Component } from '@angular/core';
+
+
+const sendUserDetails = createMessage<{
+  name: string,
+  conf: string
+}>('userdetails');
+
 
 @Component({
   selector: 'microapp-root-2',
@@ -7,4 +15,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shell';
+
+  sendMessage(): void {
+    sendUserDetails({
+      name: 'Michael',
+      conf: ''
+    });
+  }
 }

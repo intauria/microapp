@@ -22,4 +22,9 @@
   </li>
 </ul>
 
+<h3 *ngIf="userDetails.name">{{ userDetails.name }} @ {{ userDetails.conf }}</h3>
+<p>
+  <button (click)="reset()">Reset State</button>
+</p>
+
 <router-outlet></router-outlet>
