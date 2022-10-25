@@ -7,7 +7,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('mfe-react') as HTMLElement
 );
 root.render(
-  <BrowserRouter>
+  <StrictMode>
     <CustomRouter history={customHistory} microApp={'mfe-react'}>
       <App />
     </CustomRouter>
