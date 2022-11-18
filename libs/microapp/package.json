@@ -1,6 +1,6 @@
 {
   "name": "@angular-architects/microapp",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "license": "MIT",
   "repository": {
     "type": "GitHub",
@@ -10,8 +10,9 @@
     "name": "Michael Egger-Zikes | intauria.com"
   },
   "peerDependencies": {
-    "@angular/common": "^13.2.0",
-    "@angular/core": "^13.2.0"
+    "@angular/common": "^13.2.0 || ^14.0.0 || ^15.0.0",
+    "@angular/core": "^13.2.0 || ^14.0.0 || ^15.0.0",
+    "@angular/router": "^13.2.0 || ^14.0.0 || ^15.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
